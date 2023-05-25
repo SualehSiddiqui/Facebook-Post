@@ -3,6 +3,166 @@
     padding: 0px;
 }
 
+body {
+    background-color: #f0f2f5;
+    position: relative;
+}
+
+.background-black {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    display: none;
+}
+
+.create-post-div {
+    background-color: #fff;
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.post-header{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #616060;
+}
+
+.close{
+    font-size: 25px;
+}
+
+.post-header>h1{
+    font-size: 20px;
+    color: #000;
+}
+
+.post-header > a{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #a4a4a8;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-post-name{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.create-post-body{
+    width: 100%;
+    height: 40%;
+    font-size: 24px;
+    resize: none;
+    border: none;
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+}
+
+.create-post-body:focus{
+    outline: none;
+}
+
+.background-post{
+    width: 100%;
+    height: 40px;
+    /* background-color: #4c89d8; */
+    /* padding: 5px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.bg-list{
+    list-style: none;
+    display: flex;
+}
+
+.bg-icon-img{
+    width: 100%;
+    height: 100%;
+}
+
+.bg{
+    width: 35px;
+    height: 30px;
+    background-color: #767677;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+#bg-2, #bg-3, #bg-4, #bg-5, #bg-6, #bg-7, #bg-8, #bg-9{
+    display: none;
+}
+
+.bg-2{
+    background-color: #25d4ff;
+}
+
+.bg-3{
+    background-color: #f35369;
+}
+
+.bg-4{
+    background-image: url(Images/smile-bg-2.jpg);
+    background-size: cover;
+}
+
+.bg-5{
+    background-image: url(Images/heart-2.png);
+    background-size: cover;
+}
+
+.bg-6{
+    background-color: #f3546a;
+}
+
+.bg-7{
+    background-image: url(Images/rain-bg-2.jpg);
+    background-size: cover;
+}
+
+.bg-8{
+    background-image: url(Images/black-heart-2.jpg);
+    background-size: cover;
+}
+
+.bg-9{
+    background-image: url(Images/black-cat-2.jpg);
+    background-size: cover;
+}
+
+.emoji{
+    background-image: url(Images/emoji-logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -18,8 +178,8 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #767677; 
-  }
+    background: #767677;
+}
 
 .nv-toggle-btn {
     border: 1px solid #000;
@@ -38,7 +198,7 @@
 .search-icon {
     width: 40px;
     height: 40px;
-    background-color: #f0f2f5;
+    /* background-color: #f0f2f5; */
     border-radius: 50%;
     text-align: center;
 }
@@ -46,7 +206,7 @@
 .icons {
     width: 45px;
     height: 45px;
-    background-color: #f0f2f5;
+    /* background-color: #f0f2f5; */
     border-radius: 50%;
     text-align: center;
 }
@@ -104,7 +264,7 @@
 
 .feed {
     width: 60%;
-    height: 90vh;
+    height: 100vh;
     background-color: #f0f2f5;
     box-shadow: #959da533 0px 8px 24px;
     border-radius: 5px;
@@ -148,15 +308,15 @@
     color: #000;
 }
 
-.menu-txt:hover{
+.menu-txt:hover {
     color: #000;
 }
 
-.men-icons{
+.men-icons {
     width: 22px;
 }
 
-.stories-div{
+.stories-div {
     background-color: #fff;
     width: 92%;
     height: 250px;
@@ -164,7 +324,7 @@
     border-radius: 8px;
 }
 
-.all-story{
+.all-story {
     width: 100%;
     height: 200px;
     display: flex;
@@ -173,7 +333,7 @@
 
 }
 
-.story-hd-div{
+.story-hd-div {
     width: 20%;
     height: 15%;
     /* background-color: aquamarine; */
@@ -181,19 +341,19 @@
     text-align: center;
 }
 
-.story-hd-div >span{
+.story-hd-div>span {
     font-size: 25px;
     color: rgb(30, 78, 167);
 }
 
-.story{
+.story {
     width: 23%;
     height: 95%;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.story-1{
+.story-1 {
     background-image: url(Images/account-image.jpg);
     background-size: cover;
     background-position: bottom;
@@ -202,11 +362,14 @@
     position: relative;
 }
 
-.story-1:hover, .story-2:hover, .story-3:hover, .story-4:hover {
+.story-1:hover,
+.story-2:hover,
+.story-3:hover,
+.story-4:hover {
     cursor: pointer;
 }
 
-.sub-story-1-1{
+.sub-story-1-1 {
     background-color: #fff;
     width: 100%;
     height: 22%;
@@ -217,7 +380,7 @@
     align-items: center;
 }
 
-.sub-story-1-2{
+.sub-story-1-2 {
     position: absolute;
     background-color: #fff;
     width: 35px;
@@ -228,16 +391,18 @@
     padding: 3px;
 }
 
-.story-create{
+.story-create {
     width: 95%;
 }
 
-.sub-stry-create-txt{
+.sub-stry-create-txt {
     color: #000;
     font-size: 15px;
 }
 
-.story-2 , .story-3 , .story-4{
+.story-2,
+.story-3,
+.story-4 {
     background-image: url(Images/account-image-1.jpg);
     background-size: cover;
     background-position: bottom;
@@ -246,7 +411,9 @@
     position: relative;
 }
 
-.sub-story-2-1, .sub-story-3-1, .sub-story-4-1{
+.sub-story-2-1,
+.sub-story-3-1,
+.sub-story-4-1 {
     /* background-color: #fff; */
     width: 100%;
     height: 22%;
@@ -257,7 +424,9 @@
     align-items: center;
 }
 
-.sub-story-2-2, .sub-story-3-2, .sub-story-4-2{
+.sub-story-2-2,
+.sub-story-3-2,
+.sub-story-4-2 {
     background-image: url(Images/Batman-Logo.png);
     background-size: cover;
     background-position: center;
@@ -272,28 +441,28 @@
     border: 3px solid #4c89d8;
 }
 
-.sub-stry-txt{
+.sub-stry-txt {
     color: #fff;
     font-size: 15px;
 }
 
-.story-3{
+.story-3 {
     background-image: url(Images/superman.jpg);
 }
 
-.sub-story-3-2{
+.sub-story-3-2 {
     background-image: url(Images/superman-logo.jpg);
 }
 
-.story-4{
+.story-4 {
     background-image: url(Images/ironman.jpg);
 }
 
-.sub-story-4-2{
+.sub-story-4-2 {
     background-image: url(Images/ironman-log.jpg);
 }
 
-.post-div{
+.post-div {
     background-color: #fff;
     width: 92%;
     height: 100px;
@@ -306,7 +475,7 @@
     flex-wrap: wrap;
 }
 
-.post-creation-div{
+.post-creation-div {
     width: 88%;
     height: 35px;
     background-color: #e1e1e6;
@@ -316,12 +485,13 @@
     font-size: 16px;
 }
 
-.post-creation-div:hover{
+.post-creation-div:hover {
     background-color: #d2d2d6;
     cursor: pointer;
 }
 
-.photo-div, .feeling-div{
+.photo-div,
+.feeling-div {
     width: 45%;
     height: 35px;
     border-radius: 10px;
@@ -330,24 +500,101 @@
     padding-left: 10px;
 }
 
-.photo-div:hover, .feeling-div:hover{
+.photo-div:hover,
+.feeling-div:hover {
     background-color: #e2e2e7;
     cursor: pointer;
 }
 
-.photo-div > span, .feeling-div > span{
+.photo-div>span,
+.feeling-div>span {
     margin-left: 5px;
 }
 
-.post{
+.post {
     background-color: #fff;
     width: 92%;
-    height: 300px;
+    height: 450px !important;
     margin-top: 20px;
     border-radius: 8px;
     padding: 10px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.name {
+    width: 100%;
+    height: 50px;
+    /* background-color: #808585; */
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+}
+
+.name-txt {
+    padding-left: 10px;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+}
+
+.name-txt:hover {
+    color: #000;
+}
+
+.sub-name-1 {
+    display: flex;
+    align-items: center;
+}
+
+.xmark-icon {
+    padding-right: 10px;
+    font-size: 30px;
+}
+
+.xmark-icon:hover {
+    cursor: pointer;
+}
+
+.post-body {
+    margin-top: 10px;
+    width: 100%;
+    height: 70%;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+
+.post-like {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.review {
+    width: 30%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.review:hover {
+    background-color: #d2d2d6;
+    cursor: pointer;
+}
+
+.review-icon {
+    font-size: 30px;
+}
+
+.review-txt {
+    font-size: 16px;
+    padding-left: 5px;
+
 }
