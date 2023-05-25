@@ -72,25 +72,22 @@ body {
 }
 
 .create-post-body{
-    width: 100%;
+    width: 98%;
     height: 40%;
     font-size: 24px;
     resize: none;
-    border: none;
+    /* border: none; */
     background-size: cover;
     background-position: center;
     padding: 10px;
-}
-
-.create-post-body:focus{
-    outline: none;
+    padding-left: 20px;
+    border-radius: 8px;
+    margin-bottom: 5px;
 }
 
 .background-post{
     width: 100%;
     height: 40px;
-    /* background-color: #4c89d8; */
-    /* padding: 5px; */
     display: flex;
     justify-content: space-between;
 }
@@ -157,10 +154,28 @@ body {
     background-size: cover;
 }
 
-.emoji{
-    background-image: url(Images/emoji-logo.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.post-btn{
+    width: 95%;
+    height: 50px;
+    background-color: #4c89d8;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    border: 1px solid #000;
+}
+
+.post-btn:hover{
+    cursor: pointer;
+}
+
+.post-btn:focus{
+    border: 2px solid #000;
+}
+
+.post-btn-div > p{
+    color: #fff;
+    font-size: 20px;
 }
 
 ::-webkit-scrollbar {
@@ -169,7 +184,7 @@ body {
 
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 2px grey;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {

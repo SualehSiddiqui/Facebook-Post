@@ -89,3 +89,38 @@ function postDivHide(){
     backgroundBlack.style.display= "none"
 }
 
+
+function post(){
+    var textArea = document.getElementById("create-post-body")
+    console.log(textArea.value)
+    var postBtn = document.getElementById("post-btn");
+    var feed = document.getElementById("feed");
+    var divPost = document.createElement("div");
+    divPost.setAttribute("class", "post");
+    var divName = document.createElement("div");
+    divName.setAttribute("class", "name");
+    var subName1 = document.createElement("div");
+    subName1.setAttribute("class", "sub-name-1")
+    var postImg = createElement("a")
+    postImg.setAttribute("class", "nav-link icons account-image post-img")
+    var nameTxt = createElement("a")
+    nameTxt.setAttribute("class", "class-txt")
+    var profileName = createTextNode("Muhammad Sualeh Siddiqui")
+    nameTxt.appendChild(profileName);
+    subName1.appendChild(postImg)
+    subName1.appendChild(nameTxt)
+    console.log(subName1)
+    var subName2 = document.createElement("div");
+    subName2.setAttribute("class", "sub-name-2")
+
+    var divPostBody = document.createElement("div");
+    var text = document.createTextNode(textArea.value);
+    divPostBody.appendChild(text);
+    divPostBody.setAttribute("class", "post-body");
+    var divPostLike = document.createElement("div");
+    divPostLike.setAttribute("class", "post-like");
+    divPost.appendChild(divName);
+    divPost.appendChild(divPostBody);
+    divPost.appendChild(divPostLike);
+    
+}
