@@ -1,43 +1,53 @@
-var postBody = document.getElementById("create-post-body");
 var backgroundName = "";
-function bakgroundImage(name){
-    if(name == "blue"){
+function bakgroundImage(name) {
+    var postBody = document.getElementById("create-post-body");
+    if (name == "blue") {
         postBody.style.backgroundColor = "#25d4ff";
         postBody.style.backgroundImage = "";
-        backgroundName = "blue";
+        backgroundName = name;
+        postBody.style.color = "#000";
     }
-    else if(name == "pink"){
+    else if (name == "pink") {
         postBody.style.backgroundColor = "#f35369";
         postBody.style.backgroundImage = "";
-        backgroundName = "pink";
+        backgroundName = name;
+        postBody.style.color = "#000";
     }
-    else if(name == "smile"){
+    else if (name == "smile") {
         postBody.style.backgroundImage = "url('Images/smile-bg.jpg')";
-        backgroundName = "smile";
+        backgroundName = name;
+        postBody.style.color = "#000";
     }
-    else if(name == "redHeart"){
-        postBody.style.backgroundImage = "url('Images/heart.png')";
-        backgroundName = "redHeart";
+    else if (name == "redHeart") {
+        postBody.style.backgroundImage = "url('Images/heart-bg.jpg')";
+        backgroundName = name;
+        postBody.style.color = "#000";
     }
-    else if(name == "babyPink"){
+    else if (name == "babyPink") {
         postBody.style.backgroundColor = "#f3546a";
         postBody.style.backgroundImage = "";
-        backgroundName = "babyPink";
+        backgroundName = name;
+        postBody.style.color = "#000";
     }
-    else if(name == "rain"){
+    else if (name == "rain") {
         postBody.style.backgroundImage = "url('Images/rain-bg.avif')";
-        backgroundName = "rain";
+        backgroundName = name;
+        postBody.style.color = "#000";
     }
-    else if(name == "blackHeart"){
+    else if (name == "blackHeart") {
         postBody.style.backgroundImage = "url('Images/black-heart.webp')";
-        backgroundName = "blackHeart";
+        backgroundName = name;
+        postBody.style.color = "#000";
     }
-    else if(name == "cat"){
+    else if (name == "cat") {
         postBody.style.backgroundImage = "url('Images/black-cat.jpg')";
-        backgroundName = "cat";
+        postBody.style.color = "#fff";
+        backgroundName = name;
     }
 
 }
+
+
 
 var bg2 = document.querySelector("#bg-2");
 var bg3 = document.querySelector("#bg-3");
@@ -47,11 +57,10 @@ var bg6 = document.querySelector("#bg-6");
 var bg7 = document.querySelector("#bg-7");
 var bg8 = document.querySelector("#bg-8");
 var bg9 = document.querySelector("#bg-9");
-// console.log(bg)
 var showOrHide = document.getElementById("showOrHide");
 var bgShowOrHide = "";
-function showOrHideBG(){
-    if(bgShowOrHide == ""){
+function showOrHideBG() {
+    if (bgShowOrHide == "") {
         bg2.style.display = "flex";
         bg3.style.display = "flex";
         bg4.style.display = "flex";
@@ -62,7 +71,7 @@ function showOrHideBG(){
         bg9.style.display = "flex";
         showOrHide.innerHTML = '<i class="fa-regular fa-less-than"></i>'
         bgShowOrHide = "done"
-    }else{
+    } else {
         bg2.style.display = "none";
         bg3.style.display = "none";
         bg4.style.display = "none";
@@ -76,51 +85,119 @@ function showOrHideBG(){
     }
 }
 
-// var createPostDiv = document.getElementById("create-post-div");
 var backgroundBlack = document.getElementById("background-black");
 
-function postDiv(){
-    // createPostDiv.style.display= "flex"
-    backgroundBlack.style.display= "flex"
+function postDiv() {
+    backgroundBlack.style.display = "flex"
 }
 
-function postDivHide(){
+function postDivHide() {
     // createPostDiv.style.display= "none"
-    backgroundBlack.style.display= "none"
+    backgroundBlack.style.display = "none"
 }
 
 
-function post(){
-    var textArea = document.getElementById("create-post-body")
-    console.log(textArea.value)
-    var postBtn = document.getElementById("post-btn");
-    var feed = document.getElementById("feed");
-    var divPost = document.createElement("div");
-    divPost.setAttribute("class", "post");
-    var divName = document.createElement("div");
-    divName.setAttribute("class", "name");
-    var subName1 = document.createElement("div");
-    subName1.setAttribute("class", "sub-name-1")
-    var postImg = createElement("a")
-    postImg.setAttribute("class", "nav-link icons account-image post-img")
-    var nameTxt = createElement("a")
-    nameTxt.setAttribute("class", "class-txt")
-    var profileName = createTextNode("Muhammad Sualeh Siddiqui")
-    nameTxt.appendChild(profileName);
-    subName1.appendChild(postImg)
-    subName1.appendChild(nameTxt)
-    console.log(subName1)
-    var subName2 = document.createElement("div");
-    subName2.setAttribute("class", "sub-name-2")
+var textArea = document.getElementById("create-post-body")
+var allPost = document.getElementById("all-post");
+var num =0;
+function post() {
+    if (textArea.value.trim() != "") {
+        ++num
+        allPost.innerHTML += `
+            <li>
+                <div class="post">
+                    <div class="name">
+                        <div class="sub-name-1">
+                            <a class="nav-link icons account-image post-img" href="#" title="Account">
+                            </a>
+                            <p class="account-name-time">
+                                <a href="#" class="name-txt">Muhammad Sualeh Siddiqui</a>
+                                <br />
+                                <span class="post-time" id="post-time"></span>
+                            </p>
+                        </div>
+                        <div class="sub-name-2">
+                            <i class="fa-solid fa-xmark xmark-icon" title="Delete" onclick="deletePost(this)"></i>
+                        </div>
+                    </div>
+                    <div class="post-body" id ="post-background${num}">${textArea.value}</div>
+                    <div class="post-like">
+                        <div class="review" onclick="like()">
+                            <i class="fa-regular fa-thumbs-up review-icon" id="Like"></i>
+                            <span class="review-txt">Like</span>
+                            <!-- <i class="fa-solid fa-thumbs-up review-icon"></i> -->
+                        </div>
+                        <div class="review">
+                            <i class="fa-regular fa-comment review-icon"></i>
+                            <span class="review-txt">Comment</span>
+                        </div>
+                        <div class="review">
+                            <i class="fa-regular fa-share-from-square review-icon"></i>
+                            <span class="review-txt">Share</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+    `
+        var postBackground = document.getElementById(`post-background${num}`)
+        textArea.value = "";
+        textArea.style.backgroundColor = "";
+        textArea.style.backgroundImage = "";
+        backgroundBlack.style.display = "none"
+        var forTime = document.getElementById("post-time")
+        forTime.innerHTML = moment(new Date()).fromNow();
 
-    var divPostBody = document.createElement("div");
-    var text = document.createTextNode(textArea.value);
-    divPostBody.appendChild(text);
-    divPostBody.setAttribute("class", "post-body");
-    var divPostLike = document.createElement("div");
-    divPostLike.setAttribute("class", "post-like");
-    divPost.appendChild(divName);
-    divPost.appendChild(divPostBody);
-    divPost.appendChild(divPostLike);
-    
+        if (backgroundName == "blue") {
+            postBackground.style.backgroundColor = "#25d4ff";
+            // postBackground.style.backgroundImage = "";
+        }
+        else if (backgroundName == "pink") {
+            postBackground.style.backgroundColor = "#f35369";
+            // postBackground.style.backgroundImage = "";
+        }
+        else if (backgroundName == "smile") {
+            postBackground.style.backgroundImage = "url('Images/smile-bg.jpg')";
+        }
+        else if (backgroundName == "redHeart") {
+            postBackground.style.backgroundImage = "url('Images/heart.png')";
+        }
+        else if (backgroundName == "babyPink") {
+            postBackground.style.backgroundColor = "#f3546a";
+            // textArea.style.backgroundImage = "";
+        }
+        else if (backgroundName == "rain") {
+            postBackground.style.backgroundImage = "url('Images/rain-bg.avif')";
+        }
+        else if (backgroundName == "blackHeart") {
+            postBackground.style.backgroundImage = "url('Images/black-heart.webp')";
+        }
+        else if (backgroundName == "cat") {
+            postBackground.style.backgroundImage = "url('Images/black-cat.jpg')";
+
+
+        }
+
+
+    } else {
+        alert("Please type something")
+    }
+
+}
+
+
+function deletePost(){
+    event.target.parentNode.parentNode.parentNode.parentNode.remove();
+}
+
+var flag = false
+function like(){
+    var likeBtn = document.getElementById("Like");
+    if(flag){
+        likeBtn.className = "fa-regular fa-thumbs-up review-icon";
+        flag = false;
+    }
+    else{
+        likeBtn.className = "fa-solid fa-thumbs-up review-icon";
+        flag = true;
+    }
 }

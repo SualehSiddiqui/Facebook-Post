@@ -9,7 +9,7 @@ body {
 }
 
 .background-black {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -34,7 +34,7 @@ body {
     flex-direction: column;
 }
 
-.post-header{
+.post-header {
     display: flex;
     justify-content: space-between;
     height: 50px;
@@ -43,16 +43,16 @@ body {
     border-bottom: 1px solid #616060;
 }
 
-.close{
+.close {
     font-size: 25px;
 }
 
-.post-header>h1{
+.post-header>h1 {
     font-size: 20px;
     color: #000;
 }
 
-.post-header > a{
+.post-header>a {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -64,14 +64,14 @@ body {
     align-items: center;
 }
 
-.create-post-name{
+.create-post-name {
     width: 100%;
     padding: 10px;
     display: flex;
     align-items: center;
 }
 
-.create-post-body{
+.create-post-body {
     width: 98%;
     height: 40%;
     font-size: 24px;
@@ -85,24 +85,24 @@ body {
     margin-bottom: 5px;
 }
 
-.background-post{
+.background-post {
     width: 100%;
     height: 40px;
     display: flex;
     justify-content: space-between;
 }
 
-.bg-list{
+.bg-list {
     list-style: none;
     display: flex;
 }
 
-.bg-icon-img{
+.bg-icon-img {
     width: 100%;
     height: 100%;
 }
 
-.bg{
+.bg {
     width: 35px;
     height: 30px;
     background-color: #767677;
@@ -113,48 +113,59 @@ body {
     margin-right: 5px;
 }
 
-#bg-2, #bg-3, #bg-4, #bg-5, #bg-6, #bg-7, #bg-8, #bg-9{
+.bg:hover {
+    cursor: pointer;
+}
+
+#bg-2,
+#bg-3,
+#bg-4,
+#bg-5,
+#bg-6,
+#bg-7,
+#bg-8,
+#bg-9 {
     display: none;
 }
 
-.bg-2{
+.bg-2 {
     background-color: #25d4ff;
 }
 
-.bg-3{
+.bg-3 {
     background-color: #f35369;
 }
 
-.bg-4{
+.bg-4 {
     background-image: url(Images/smile-bg-2.jpg);
     background-size: cover;
 }
 
-.bg-5{
+.bg-5 {
     background-image: url(Images/heart-2.png);
     background-size: cover;
 }
 
-.bg-6{
+.bg-6 {
     background-color: #f3546a;
 }
 
-.bg-7{
+.bg-7 {
     background-image: url(Images/rain-bg-2.jpg);
     background-size: cover;
 }
 
-.bg-8{
+.bg-8 {
     background-image: url(Images/black-heart-2.jpg);
     background-size: cover;
 }
 
-.bg-9{
+.bg-9 {
     background-image: url(Images/black-cat-2.jpg);
     background-size: cover;
 }
 
-.post-btn{
+.post-btn {
     width: 95%;
     height: 50px;
     background-color: #4c89d8;
@@ -165,17 +176,21 @@ body {
     border: 1px solid #000;
 }
 
-.post-btn:hover{
+.post-btn:hover {
     cursor: pointer;
 }
 
-.post-btn:focus{
+.post-btn:focus {
     border: 2px solid #000;
 }
 
-.post-btn-div > p{
+.post-btn-div>p {
     color: #fff;
     font-size: 20px;
+}
+
+.create-post-div-txt {
+    padding: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -279,7 +294,7 @@ body {
 
 .feed {
     width: 60%;
-    height: 100vh;
+    height: auto;
     background-color: #f0f2f5;
     box-shadow: #959da533 0px 8px 24px;
     border-radius: 5px;
@@ -526,10 +541,19 @@ body {
     margin-left: 5px;
 }
 
+
+
+.all-post {
+    width: 92%;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
 .post {
     background-color: #fff;
-    width: 92%;
-    height: 450px !important;
+    width: 100%;
+    min-height: 150px;
     margin-top: 20px;
     border-radius: 8px;
     padding: 10px;
@@ -549,15 +573,31 @@ body {
     justify-content: space-between;
 }
 
-.name-txt {
+.account-name-time {
+    /* height: 100%; */
+    /* background-color: #25d4ff; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    margin-top: 20px;
     padding-left: 10px;
+}
+
+.name-txt {
     text-decoration: none;
     color: #000;
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 
 .name-txt:hover {
     color: #000;
+}
+
+.post-time {
+    margin-top: -10px;
+    /* background-color: #000; */
+    /* font-size: ; */
+    /* display: inline-block; */
 }
 
 .sub-name-1 {
@@ -568,6 +608,7 @@ body {
 .xmark-icon {
     padding-right: 10px;
     font-size: 30px;
+    color: #a4a5a8;
 }
 
 .xmark-icon:hover {
@@ -577,9 +618,13 @@ body {
 .post-body {
     margin-top: 10px;
     width: 100%;
-    height: 70%;
+    min-height: 100px;
+    max-height: auto;
     border: 1px solid #000;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .post-like {
@@ -597,6 +642,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .review:hover {
@@ -611,5 +657,43 @@ body {
 .review-txt {
     font-size: 16px;
     padding-left: 5px;
+
+}
+
+.header-txt{
+    display: none;
+}
+
+.main-post{
+    background-color: rgb(17, 115, 128);
+    color: #fff;
+    font-size: 24px;
+}
+
+
+
+@media only screen and (max-width: 992px) {
+    .post-div {
+        height: 132px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .feed{
+        width: 100%;
+    }
+    .menu{
+        display: none;
+    }
+    .nav-bar-items2{
+        display: none;
+    }
+    .header-txt{
+        display: inline-block;
+    }
+
+    .more-icon{
+        display: none !important;
+    }
 
 }

@@ -17,15 +17,17 @@
             <div class="post-header">
                 <h1>Create post</h1>
                 <a href="#">
-                    <i class="fa-solid fa-xmark close" onclick="postDivHide()" title="Delete" style="color: #0f0f0f;"></i>
+                    <i class="fa-solid fa-xmark close" onclick="postDivHide()" title="Delete"
+                        style="color: #0f0f0f;"></i>
                 </a>
             </div>
             <div class="create-post-name">
                 <a class="nav-link icons account-image post-img" href="#" title="Account">
                 </a>
-                <a href="#" class="name-txt">Muhammad Sualeh Siddiqui</a>
+                <a href="#" class="name-txt create-post-div-txt">Muhammad Sualeh Siddiqui</a>
             </div>
-            <textarea name="post-text" id="create-post-body" class="create-post-body" placeholder="What's on your mind, Sualeh?"></textarea>
+            <textarea name="post-text" id="create-post-body" class="create-post-body"
+                placeholder="What's on your mind, Sualeh?" ></textarea>
             <div class="background-post">
                 <ul class="bg-list">
                     <li class="bg bg-1" id="showOrHide" onclick="showOrHideBG()">
@@ -75,32 +77,37 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#" title="Home">
                             <i class="fa-solid fa-house icon" style="color: #0778e9;"></i>
+                            <span class="header-txt">Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" title="Friends">
                             <i class="fa-solid fa-user-group fr-icon"></i>
+                            <span class="header-txt">Friends</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" title="Watch">
                             <i class="fa-solid fa-tv fr-icon"></i>
+                            <span class="header-txt">Watch</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" title="Groups">
                             <i class="fa-solid fa-users-rectangle fr-icon"></i>
+                            <span class="header-txt">Group</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" title="More">
-                            <i class="fa-solid fa-bars fr-icon"></i>
+                            <i class="fa-solid fa-bars fr-icon more-icon"></i>
                         </a>
                     </li>
                 </ul>
                 <ul class="navbar-nav nav-bar-items2 ms-auto me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active icons" aria-current="page" href="#" title="Create" onclick="postDiv()">
+                        <a class="nav-link active icons" aria-current="page" href="#" title="Create"
+                            onclick="postDiv()">
                             <i class="fa-solid fa-plus add-icon"></i>
                         </a>
                     </li>
@@ -273,38 +280,47 @@
                         <span>Feeling/Activity</span>
                     </div>
                 </div>
-                <div class="post">
-                    <div class="name">
-                        <div class="sub-name-1">
-                            <a class="nav-link icons account-image post-img" href="#" title="Account">
-                            </a>
-                            <a href="#" class="name-txt">Muhammad Sualeh Siddiqui</a>
+                <!-- All Posts -->
+                <ul class="all-post" id="all-post">
+                    <li>
+                        <div class="post">
+                            <div class="name">
+                                <div class="sub-name-1">
+                                    <a class="nav-link icons account-image post-img" href="#" title="Account">
+                                    </a>
+                                    <p class="account-name-time">
+                                        <a href="#" class="name-txt">Muhammad Sualeh Siddiqui</a>
+                                        <br />
+                                        <span class="post-time" id="post-time"></span>
+                                    </p>
+                                </div>
+                                <div class="sub-name-2">
+                                    <i class="fa-solid fa-xmark xmark-icon" title="Delete" onclick="deletePost(this)"></i>
+                                </div>
+                            </div>
+                            <div class="post-body main-post" id ="post-background">Made By Sualeh</div>
+                            <div class="post-like">
+                                <div class="review" onclick="like()">
+                                    <i class="fa-regular fa-thumbs-up review-icon" id="Like"></i>
+                                    <span class="review-txt">Like</span>
+                                    <!-- <i class="fa-solid fa-thumbs-up review-icon"></i> -->
+                                </div>
+                                <div class="review">
+                                    <i class="fa-regular fa-comment review-icon"></i>
+                                    <span class="review-txt">Comment</span>
+                                </div>
+                                <div class="review">
+                                    <i class="fa-regular fa-share-from-square review-icon"></i>
+                                    <span class="review-txt">Share</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="sub-name-2">
-                            <i class="fa-solid fa-xmark xmark-icon" title="Delete" style="color: #a4a5a8;"></i>
-                        </div>
-                    </div>
-                    <div class="post-body"></div>
-                    <div class="post-like">
-                        <div class="review">
-                            <i class="fa-regular fa-thumbs-up review-icon"></i>
-                            <span class="review-txt">Like</span>
-                            <!-- <i class="fa-solid fa-thumbs-up review-icon"></i> -->
-                        </div>
-                        <div class="review">
-                            <i class="fa-regular fa-comment review-icon"></i>
-                            <span class="review-txt">Comment</span>
-                        </div>
-                        <div class="review">
-                            <i class="fa-regular fa-share-from-square review-icon"></i>
-                            <span class="review-txt">Share</span>
-                        </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-
+    
 
 
 
@@ -312,7 +328,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
+    <script src="momen.js"></script>
     <script src="https://kit.fontawesome.com/e0836ffa6a.js" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 
