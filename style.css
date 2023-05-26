@@ -111,20 +111,23 @@ body {
     align-items: center;
     border-radius: 5px;
     margin-right: 5px;
+    border: 1px solid #000;
 }
 
 .bg:hover {
     cursor: pointer;
 }
 
-#bg-2,
-#bg-3,
-#bg-4,
-#bg-5,
-#bg-6,
-#bg-7,
-#bg-8,
-#bg-9 {
+.bg-2,
+.bg-3,
+.bg-4,
+.bg-5,
+.bg-6,
+.bg-7,
+.bg-8,
+.bg-9,
+.bg-10
+ {
     display: none;
 }
 
@@ -162,6 +165,11 @@ body {
 
 .bg-9 {
     background-image: url(Images/black-cat-2.jpg);
+    background-size: cover;
+}
+
+.bg-10 {
+    background-color: #fff;
     background-size: cover;
 }
 
@@ -228,17 +236,16 @@ body {
 .search-icon {
     width: 40px;
     height: 40px;
-    /* background-color: #f0f2f5; */
     border-radius: 50%;
     text-align: center;
 }
 
 .icons {
-    width: 45px;
-    height: 45px;
-    /* background-color: #f0f2f5; */
-    border-radius: 50%;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
     text-align: center;
+    background: transparent;
 }
 
 .nav-bar-items1 {
@@ -273,6 +280,12 @@ body {
     background-size: cover;
     background-position: center;
 }
+
+.dropdown-menu{
+    min-width: 100px !important;
+}
+
+
 
 .body {
     width: 100%;
@@ -366,7 +379,6 @@ body {
 .story-hd-div {
     width: 20%;
     height: 15%;
-    /* background-color: aquamarine; */
     margin: 0px auto;
     text-align: center;
 }
@@ -501,18 +513,19 @@ body {
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-wrap: wrap;
 }
 
 .post-creation-div {
-    width: 88%;
+    width: 85%;
     height: 35px;
     background-color: #e1e1e6;
     border-radius: 20px;
     display: flex;
     padding: 5px;
     font-size: 16px;
+    margin-left: 5px;
 }
 
 .post-creation-div:hover {
@@ -567,18 +580,12 @@ body {
 .name {
     width: 100%;
     height: 50px;
-    /* background-color: #808585; */
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .account-name-time {
-    /* height: 100%; */
-    /* background-color: #25d4ff; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
     margin-top: 20px;
     padding-left: 10px;
 }
@@ -595,9 +602,6 @@ body {
 
 .post-time {
     margin-top: -10px;
-    /* background-color: #000; */
-    /* font-size: ; */
-    /* display: inline-block; */
 }
 
 .sub-name-1 {
@@ -605,15 +609,21 @@ body {
     align-items: center;
 }
 
-.xmark-icon {
+.xmark-icon, .edit-icon {
     padding-right: 10px;
     font-size: 30px;
     color: #a4a5a8;
 }
 
-.xmark-icon:hover {
+.edit-icon{
+    font-size: 23px;
+}
+
+.xmark-icon:hover, .edit-icon:hover {
     cursor: pointer;
 }
+
+
 
 .post-body {
     margin-top: 10px;
@@ -625,6 +635,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .post-like {
@@ -642,7 +653,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    
+    flex-wrap: wrap;
 }
 
 .review:hover {
@@ -651,13 +663,36 @@ body {
 }
 
 .review-icon {
-    font-size: 30px;
+    font-size: 26px;
 }
 
 .review-txt {
     font-size: 16px;
     padding-left: 5px;
 
+}
+
+.update{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #000;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-size: 18px;
+    display: none;
+}
+
+.update:hover{
+    cursor: pointer;
 }
 
 .header-txt{
@@ -670,13 +705,40 @@ body {
     font-size: 24px;
 }
 
+.delete-all-post{
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #fff;
+    bottom: 10px;
+    right: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
+.delete-all-post >i{
+    font-size: 25px;
+}
+
+.delete-all-post > span{
+    font-size: 12px;
+}
+
+.delete-all-post:hover{
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 992px) {
     .post-div {
         height: 132px;
     }
 }
+
+
 
 @media only screen and (max-width: 767px) {
     .feed{
@@ -694,6 +756,23 @@ body {
 
     .more-icon{
         display: none !important;
+    }
+
+}
+
+@media only screen and (max-width: 576px) {
+    .create-post-div {
+        width: 450px;
+    }
+
+    /* .post-creation-div{
+        width: 85%;
+    } */
+}
+
+@media only screen and (max-width: 415px) {
+    .post-creation-div{
+        width: 80%;
     }
 
 }

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="images/Facebook_Logo1.webp">
+    <title>  Facebook – Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -27,12 +28,13 @@
                 <a href="#" class="name-txt create-post-div-txt">Muhammad Sualeh Siddiqui</a>
             </div>
             <textarea name="post-text" id="create-post-body" class="create-post-body"
-                placeholder="What's on your mind, Sualeh?" ></textarea>
+                placeholder="What's on your mind, Sualeh?"></textarea>
             <div class="background-post">
                 <ul class="bg-list">
                     <li class="bg bg-1" id="showOrHide" onclick="showOrHideBG()">
                         <img src="Images/font-color-icon.png" alt="" class="bg-icon-img">
                     </li>
+                    <li class="bg bg-10" id="bg-10" onclick="bakgroundImage('white')"></li>
                     <li class="bg bg-2" id="bg-2" onclick="bakgroundImage('blue')">
                     </li>
                     <li class="bg bg-3" id="bg-3" onclick="bakgroundImage('pink')">
@@ -116,14 +118,21 @@
                             <i class="fa-brands fa-facebook-messenger add-icon"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link icons" href="#" title="Notification">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  icons" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <i class="fa-solid fa-bell add-icon"></i>
                         </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">No New Notification</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link icons account-image" href="#" title="Account">
-                        </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  icons account-image" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="log-in.html">Log out</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -139,8 +148,6 @@
                             Muhammad Sualeh Siddiqui
                         </a>
                     </li>
-                    <!-- <li class="menu-items">
-                    </li> -->
                     <li class="menu-items">
                         <img src="Images/Icons/friends.png" alt="-img" class="men-icons">
                         <a href="#" class="menu-txt">Friends</a>
@@ -291,19 +298,25 @@
                                     <p class="account-name-time">
                                         <a href="#" class="name-txt">Muhammad Sualeh Siddiqui</a>
                                         <br />
-                                        <span class="post-time" id="post-time"></span>
+                                        <span class="post-time" id="my-post-time"></span>
                                     </p>
                                 </div>
                                 <div class="sub-name-2">
-                                    <i class="fa-solid fa-xmark xmark-icon" title="Delete" onclick="deletePost(this)"></i>
+                                    <i class="fa-solid fa-pen-to-square edit-icon" id="edit-icon"
+                                        onclick="editPost('edit')" style="color: #747576;"></i>
+                                    <i class="fa-solid fa-xmark xmark-icon" title="Delete" onclick="deletePost()"></i>
                                 </div>
                             </div>
-                            <div class="post-body main-post" id ="post-background">Made By Sualeh</div>
+                            <div class="post-body main-post" id="post-background">
+                                Made By Sualeh
+                                <div class="update" id="update" onclick="editPost('update')">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                            </div>
                             <div class="post-like">
                                 <div class="review" onclick="like()">
                                     <i class="fa-regular fa-thumbs-up review-icon" id="Like"></i>
                                     <span class="review-txt">Like</span>
-                                    <!-- <i class="fa-solid fa-thumbs-up review-icon"></i> -->
                                 </div>
                                 <div class="review">
                                     <i class="fa-regular fa-comment review-icon"></i>
@@ -318,9 +331,13 @@
                     </li>
                 </ul>
             </div>
+            <div class="delete-all-post" id="delete-all-post" onclick="deleteAllPost()">
+                <i class="fa-solid fa-trash-can"></i>
+                <span>Delete all</span>
+            </div>
         </div>
     </div>
-    
+
 
 
 

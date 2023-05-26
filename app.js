@@ -1,7 +1,13 @@
 var backgroundName = "";
+var postBody = document.getElementById("create-post-body");
 function bakgroundImage(name) {
-    var postBody = document.getElementById("create-post-body");
-    if (name == "blue") {
+    if (name == "white") {
+        postBody.style.backgroundColor = "#fff";
+        postBody.style.backgroundImage = "";
+        backgroundName = name;
+        postBody.style.color = "#000";
+    }
+    else if (name == "blue") {
         postBody.style.backgroundColor = "#25d4ff";
         postBody.style.backgroundImage = "";
         backgroundName = name;
@@ -32,7 +38,7 @@ function bakgroundImage(name) {
     else if (name == "rain") {
         postBody.style.backgroundImage = "url('Images/rain-bg.avif')";
         backgroundName = name;
-        postBody.style.color = "#000";
+        postBody.style.color = "#fff";
     }
     else if (name == "blackHeart") {
         postBody.style.backgroundImage = "url('Images/black-heart.webp')";
@@ -44,7 +50,6 @@ function bakgroundImage(name) {
         postBody.style.color = "#fff";
         backgroundName = name;
     }
-
 }
 
 
@@ -57,6 +62,7 @@ var bg6 = document.querySelector("#bg-6");
 var bg7 = document.querySelector("#bg-7");
 var bg8 = document.querySelector("#bg-8");
 var bg9 = document.querySelector("#bg-9");
+var bg10 = document.querySelector("#bg-10");
 var showOrHide = document.getElementById("showOrHide");
 var bgShowOrHide = "";
 function showOrHideBG() {
@@ -69,6 +75,7 @@ function showOrHideBG() {
         bg7.style.display = "flex";
         bg8.style.display = "flex";
         bg9.style.display = "flex";
+        bg10.style.display = "flex";
         showOrHide.innerHTML = '<i class="fa-regular fa-less-than"></i>'
         bgShowOrHide = "done"
     } else {
@@ -80,15 +87,19 @@ function showOrHideBG() {
         bg7.style.display = "none";
         bg8.style.display = "none";
         bg9.style.display = "none";
+        bg10.style.display = "none";
         showOrHide.innerHTML = '<img src="Images/font-color-icon.png" alt="" class="bg-icon-img">'
         bgShowOrHide = "";
     }
 }
 
 var backgroundBlack = document.getElementById("background-black");
-
 function postDiv() {
     backgroundBlack.style.display = "flex"
+    backgroundName = "white";
+
+    //     postBackground.style.backgroundImage = "";
+    //     postBackground.style.backgroundcolor = "#fff";
 }
 
 function postDivHide() {
@@ -96,10 +107,16 @@ function postDivHide() {
     backgroundBlack.style.display = "none"
 }
 
+var constantCurrentTime = new Date();
+setInterval(function () {
+    var forTime = document.getElementById("my-post-time")
+    forTime.innerHTML = moment(constantCurrentTime).fromNow();
+}, 1000);
+
 
 var textArea = document.getElementById("create-post-body")
 var allPost = document.getElementById("all-post");
-var num =0;
+var num = 0;
 function post() {
     if (textArea.value.trim() != "") {
         ++num
@@ -113,19 +130,25 @@ function post() {
                             <p class="account-name-time">
                                 <a href="#" class="name-txt">Muhammad Sualeh Siddiqui</a>
                                 <br />
-                                <span class="post-time" id="post-time"></span>
+                                <span class="post-time" id="post-time${num}"></span>
                             </p>
                         </div>
                         <div class="sub-name-2">
+                            <i class="fa-solid fa-pen-to-square edit-icon" id="edit-icon"
+                            onclick="editPost('edit')" style="color: #747576;"></i>
                             <i class="fa-solid fa-xmark xmark-icon" title="Delete" onclick="deletePost(this)"></i>
                         </div>
                     </div>
-                    <div class="post-body" id ="post-background${num}">${textArea.value}</div>
+                    <div class="post-body" id ="post-background${num}">
+                        ${textArea.value}
+                        <div class="update" id="update" onclick="editPost('update')">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
                     <div class="post-like">
-                        <div class="review" onclick="like()">
-                            <i class="fa-regular fa-thumbs-up review-icon" id="Like"></i>
+                        <div class="review">
+                            <i class="fa-regular fa-thumbs-up review-icon" id="Like${num}"></i>
                             <span class="review-txt">Like</span>
-                            <!-- <i class="fa-solid fa-thumbs-up review-icon"></i> -->
                         </div>
                         <div class="review">
                             <i class="fa-regular fa-comment review-icon"></i>
@@ -139,65 +162,86 @@ function post() {
                 </div>
             </li>
     `
-        var postBackground = document.getElementById(`post-background${num}`)
         textArea.value = "";
         textArea.style.backgroundColor = "";
         textArea.style.backgroundImage = "";
         backgroundBlack.style.display = "none"
-        var forTime = document.getElementById("post-time")
-        forTime.innerHTML = moment(new Date()).fromNow();
+        var currentTime = new Date()
+        var forTime = document.getElementById(`post-time${num}`)
+        setInterval(function () {
+            forTime.innerHTML = moment(currentTime).fromNow();
+        }, 1000);
 
-        if (backgroundName == "blue") {
+        var postBackground = document.getElementById(`post-background${num}`)
+        postBackground.style.color = "#000";
+        if (backgroundName == "white") {
+            postBackground.style.backgroundColor = "#fff";
+        }
+        else if (backgroundName == "blue") {
             postBackground.style.backgroundColor = "#25d4ff";
-            // postBackground.style.backgroundImage = "";
         }
         else if (backgroundName == "pink") {
             postBackground.style.backgroundColor = "#f35369";
-            // postBackground.style.backgroundImage = "";
         }
         else if (backgroundName == "smile") {
             postBackground.style.backgroundImage = "url('Images/smile-bg.jpg')";
         }
         else if (backgroundName == "redHeart") {
-            postBackground.style.backgroundImage = "url('Images/heart.png')";
+            postBackground.style.backgroundImage = "url('Images/heart-bg.jpg')";
         }
         else if (backgroundName == "babyPink") {
             postBackground.style.backgroundColor = "#f3546a";
-            // textArea.style.backgroundImage = "";
         }
         else if (backgroundName == "rain") {
             postBackground.style.backgroundImage = "url('Images/rain-bg.avif')";
+            postBackground.style.color = "#fff";
         }
         else if (backgroundName == "blackHeart") {
             postBackground.style.backgroundImage = "url('Images/black-heart.webp')";
         }
         else if (backgroundName == "cat") {
             postBackground.style.backgroundImage = "url('Images/black-cat.jpg')";
-
-
+            postBackground.style.color = "#fff";
         }
-
 
     } else {
         alert("Please type something")
     }
-
+    postBody.style.color = "#000";
 }
 
 
-function deletePost(){
+function deletePost() {
     event.target.parentNode.parentNode.parentNode.parentNode.remove();
 }
 
-var flag = false
-function like(){
-    var likeBtn = document.getElementById("Like");
-    if(flag){
-        likeBtn.className = "fa-regular fa-thumbs-up review-icon";
-        flag = false;
+function deleteAllPost() {
+    allPost.innerHTML = "";
+}
+
+function editPost(action) {
+    if (action == "update") {
+        event.target.parentNode.parentNode.contentEditable = false;
+        event.target.parentNode.style.display = "none"
+    }
+    else {
+        event.target.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].style.display = "flex";
+        event.target.parentNode.parentNode.parentNode.childNodes[3].contentEditable = true;
+        event.target.parentNode.parentNode.parentNode.childNodes[3].focus();
+    }
+}
+
+
+
+function check(){
+    var email = document.getElementById("email");
+    var password = document.getElementById("password");
+    if(email.value.trim() == "sualeh" && password.value.trim() == "sualeh"){
+        window.location.href = "index.html"
     }
     else{
-        likeBtn.className = "fa-solid fa-thumbs-up review-icon";
-        flag = true;
+        alert("Incorrect correct Username or Password")
+        email.value = "";
+        password.value = "";
     }
 }
