@@ -76,7 +76,6 @@ body {
     height: 40%;
     font-size: 24px;
     resize: none;
-    /* border: none; */
     background-size: cover;
     background-position: center;
     padding: 10px;
@@ -87,9 +86,17 @@ body {
 
 .background-post {
     width: 100%;
-    height: 40px;
+    height: 30px;
+    /* background-color: #000; */
+}
+
+.font-color-div {
+    margin-top: 5px;
+    padding-left: 28px;
+    width: 100%;
+    height: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .bg-list {
@@ -126,8 +133,7 @@ body {
 .bg-7,
 .bg-8,
 .bg-9,
-.bg-10
- {
+.bg-10 {
     display: none;
 }
 
@@ -276,12 +282,12 @@ body {
 }
 
 .account-image {
-    background-image: url(Images/account-image.jpg);
+    background-image: url(Images/small-account-img.jpg);
     background-size: cover;
     background-position: center;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     min-width: 100px !important;
 }
 
@@ -337,7 +343,7 @@ body {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-image: url(Images/account-image.jpg);
+    background-image: url(Images/small-account-img.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -396,9 +402,9 @@ body {
 }
 
 .story-1 {
-    background-image: url(Images/account-image.jpg);
+    background-image: url(Images/account-image.png);
     background-size: cover;
-    background-position: bottom;
+    /* background-position: bottom; */
     display: flex;
     align-items: flex-end;
     position: relative;
@@ -609,17 +615,19 @@ body {
     align-items: center;
 }
 
-.xmark-icon, .edit-icon {
+.xmark-icon,
+.edit-icon {
     padding-right: 10px;
     font-size: 30px;
     color: #a4a5a8;
 }
 
-.edit-icon{
+.edit-icon {
     font-size: 23px;
 }
 
-.xmark-icon:hover, .edit-icon:hover {
+.xmark-icon:hover,
+.edit-icon:hover {
     cursor: pointer;
 }
 
@@ -653,7 +661,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     flex-wrap: wrap;
 }
 
@@ -672,7 +680,7 @@ body {
 
 }
 
-.update{
+.update {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -691,21 +699,21 @@ body {
     display: none;
 }
 
-.update:hover{
+.update:hover {
     cursor: pointer;
 }
 
-.header-txt{
+.header-txt {
     display: none;
 }
 
-.main-post{
+.main-post {
     background-color: rgb(17, 115, 128);
     color: #fff;
     font-size: 24px;
 }
 
-.delete-all-post{
+.delete-all-post {
     position: fixed;
     width: 70px;
     height: 70px;
@@ -720,15 +728,15 @@ body {
     flex-direction: column;
 }
 
-.delete-all-post >i{
+.delete-all-post>i {
     font-size: 25px;
 }
 
-.delete-all-post > span{
+.delete-all-post>span {
     font-size: 12px;
 }
 
-.delete-all-post:hover{
+.delete-all-post:hover {
     cursor: pointer;
 }
 
@@ -741,20 +749,23 @@ body {
 
 
 @media only screen and (max-width: 767px) {
-    .feed{
+    .feed {
         width: 100%;
     }
-    .menu{
+
+    .menu {
         display: none;
     }
-    .nav-bar-items2{
+
+    .nav-bar-items2 {
         display: none;
     }
-    .header-txt{
+
+    .header-txt {
         display: inline-block;
     }
 
-    .more-icon{
+    .more-icon {
         display: none !important;
     }
 
@@ -771,7 +782,7 @@ body {
 }
 
 @media only screen and (max-width: 415px) {
-    .post-creation-div{
+    .post-creation-div {
         width: 80%;
     }
 

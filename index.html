@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- Post creation -->
     <div class="background-black" id="background-black">
         <div class="create-post-div" id="create-post-div">
             <div class="post-header">
@@ -52,6 +53,9 @@
                     <li class="bg bg-9" id="bg-9" onclick="bakgroundImage('cat')">
                     </li>
                 </ul>
+            </div>
+            <div class="font-color-div">
+                <input type="color" name="font-color" id="font-color" onchange="changeFont()">
             </div>
             <button class="post-btn mt-auto mb-2" onclick="post()" id="post-btn">
                 <p>Post</p>
@@ -308,7 +312,7 @@
                                 </div>
                             </div>
                             <div class="post-body main-post" id="post-background">
-                                Made By Sualeh
+                                Made By Sualeh Siddiqui
                                 <div class="update" id="update" onclick="editPost('update')">
                                     <i class="fa-solid fa-check"></i>
                                 </div>

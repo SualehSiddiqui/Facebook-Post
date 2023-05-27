@@ -5,49 +5,40 @@ function bakgroundImage(name) {
         postBody.style.backgroundColor = "#fff";
         postBody.style.backgroundImage = "";
         backgroundName = name;
-        postBody.style.color = "#000";
     }
     else if (name == "blue") {
         postBody.style.backgroundColor = "#25d4ff";
         postBody.style.backgroundImage = "";
         backgroundName = name;
-        postBody.style.color = "#000";
     }
     else if (name == "pink") {
         postBody.style.backgroundColor = "#f35369";
         postBody.style.backgroundImage = "";
         backgroundName = name;
-        postBody.style.color = "#000";
     }
     else if (name == "smile") {
         postBody.style.backgroundImage = "url('Images/smile-bg.jpg')";
         backgroundName = name;
-        postBody.style.color = "#000";
     }
     else if (name == "redHeart") {
         postBody.style.backgroundImage = "url('Images/heart-bg.jpg')";
         backgroundName = name;
-        postBody.style.color = "#000";
     }
     else if (name == "babyPink") {
         postBody.style.backgroundColor = "#f3546a";
         postBody.style.backgroundImage = "";
         backgroundName = name;
-        postBody.style.color = "#000";
     }
     else if (name == "rain") {
         postBody.style.backgroundImage = "url('Images/rain-bg.avif')";
         backgroundName = name;
-        postBody.style.color = "#fff";
     }
     else if (name == "blackHeart") {
         postBody.style.backgroundImage = "url('Images/black-heart.webp')";
         backgroundName = name;
-        postBody.style.color = "#000";
     }
     else if (name == "cat") {
         postBody.style.backgroundImage = "url('Images/black-cat.jpg')";
-        postBody.style.color = "#fff";
         backgroundName = name;
     }
 }
@@ -97,13 +88,9 @@ var backgroundBlack = document.getElementById("background-black");
 function postDiv() {
     backgroundBlack.style.display = "flex"
     backgroundName = "white";
-
-    //     postBackground.style.backgroundImage = "";
-    //     postBackground.style.backgroundcolor = "#fff";
 }
 
 function postDivHide() {
-    // createPostDiv.style.display= "none"
     backgroundBlack.style.display = "none"
 }
 
@@ -162,6 +149,13 @@ function post() {
                 </div>
             </li>
     `
+
+        var postBackground = document.getElementById(`post-background${num}`)
+        var font = document.getElementById("font-color");
+        postBackground.style.color = font.value
+        postBackground.style.fontSize = "25px"
+
+
         textArea.value = "";
         textArea.style.backgroundColor = "";
         textArea.style.backgroundImage = "";
@@ -172,8 +166,6 @@ function post() {
             forTime.innerHTML = moment(currentTime).fromNow();
         }, 1000);
 
-        var postBackground = document.getElementById(`post-background${num}`)
-        postBackground.style.color = "#000";
         if (backgroundName == "white") {
             postBackground.style.backgroundColor = "#fff";
         }
@@ -201,13 +193,11 @@ function post() {
         }
         else if (backgroundName == "cat") {
             postBackground.style.backgroundImage = "url('Images/black-cat.jpg')";
-            postBackground.style.color = "#fff";
         }
 
     } else {
         alert("Please type something")
     }
-    postBody.style.color = "#000";
 }
 
 
@@ -231,15 +221,22 @@ function editPost(action) {
     }
 }
 
+var font = document.getElementById("font-color");
+function changeFont() {
+    textArea.style.color = font.value
+}
 
 
-function check(){
+
+
+
+function check() {
     var email = document.getElementById("email");
     var password = document.getElementById("password");
-    if(email.value.trim() == "sualeh" && password.value.trim() == "sualeh"){
+    if (email.value.trim() == "sualeh" && password.value.trim() == "sualeh") {
         window.location.href = "index.html"
     }
-    else{
+    else {
         alert("Incorrect correct Username or Password")
         email.value = "";
         password.value = "";
