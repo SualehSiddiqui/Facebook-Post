@@ -96,7 +96,7 @@ function postDivHide() {
 
 var constantCurrentTime = new Date();
 setInterval(function () {
-    var forTime = document.getElementById("my-post-time")
+    var forTime = document.getElementById("my-post-time");
     forTime.innerHTML = moment(constantCurrentTime).fromNow();
 }, 1000);
 
@@ -107,7 +107,7 @@ var num = 0;
 function post() {
     if (textArea.value.trim() != "") {
         ++num
-        allPost.innerHTML += `
+        allPost.innerHTML = `
             <li>
                 <div class="post">
                     <div class="name">
@@ -148,7 +148,7 @@ function post() {
                     </div>
                 </div>
             </li>
-    `
+    ` + allPost.innerHTML;
 
         var postBackground = document.getElementById(`post-background${num}`)
         var font = document.getElementById("font-color");
@@ -226,7 +226,167 @@ function changeFont() {
     textArea.style.color = font.value
 }
 
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(function (data) {
+        return data.json();
+    })
+    .then(function (data) {
+        var colors = [
+            `AliceBlue`,
+            `AntiqueWhite`,
+            `Aqua`,
+            `Aquamarine`,
+            `Azure`,
+            `Beige`,
+            `Bisque`,
+            `YellowGreen`,
+            `BlanchedAlmond`,
+            `Blue`,
+            `BlueViolet`,
+            `Brown`,
+            `BurlyWood`,
+            `CadetBlue`,
+            `Chartreuse`,
+            `Chocolate`,
+            `Coral`,
+            `CornflowerBlue`,
+            `Cornsilk`,
+            `Crimson`,
+            `Cyan`,
+            `DarkBlue`,
+            `DarkCyan`,
+            `DarkGoldenRod`,
+            `DarkGray`,
+            `DarkGrey`,
+            `DarkGreen`,
+            `DarkKhaki`,
+            `DarkMagenta`,
+            `DarkOliveGreen`,
+            `Darkorange`,
+            `DarkOrchid`,
+            `DarkRed`,
+            `DarkSalmon`,
+            `DarkSeaGreen`,
+            `DarkSlateBlue`,
+            `DarkSlateGray`,
+            `DarkSlateGrey`,
+            `DarkTurquoise`,
+            `DarkViolet`,
+            `DeepPink`,
+            `DeepSkyBlue`,
+            `DimGray`,
+            `DimGrey`,
+            `DodgerBlue`,
+            `FireBrick`,
+            `FloralWhite`,
+            `ForestGreen`,
+            `Fuchsia`,
+            `Gainsboro`,
+            `GhostWhite`,
+            `Gold`,
+            `GoldenRod`,
+            `Gray`,
+            `Grey`,
+            `Green`,
+            `GreenYellow`,
+            `HoneyDew`,
+            `HotPink`,
+            `IndianRed`,
+            `Indigo`,
+            `Ivory`,
+            `Khaki`,
+            `Lavender`,
+            `LavenderBlush`,
+            `LawnGreen`,
+            `LemonChiffon`,
+            `LightBlue`,
+            `LightCoral`,
+            `LightCyan`,
+            `LightGoldenRodYellow`,
+            `LightGray`,
+            `LightGrey`,
+            `LightGreen`,
+            `LightPink`,
+            `LightSalmon`,
+            `LightSeaGreen`,
+            `LightSkyBlue`,
+            `LightSlateGray`,
+            `LightSlateGrey`,
+            `LightSteelBlue`,
+            `LightYellow`,
+            `Lime`,
+            `LimeGreen`,
+            `Linen`,
+            `Magenta`,
+            `Maroon`,
+            `MediumAquaMarine`,
+            `MediumBlue`,
+            `MediumOrchid`,
+            `MediumPurple`,
+            `MediumSeaGreen`,
+            `MediumSlateBlue`,
+            `MediumSpringGreen`,
+            `MediumTurquoise`,
+            `MediumVioletRed`,
+            `MidnightBlue`,
+            `MintCream`,
+            `MistyRose`,
+            `Moccasin`
+        ]
+        for (var i = 0; i < data.length; i++) {
+            allPost.innerHTML += `
+            <li>
+                <div class="post">
+                    <div class="name">
+                        <div class="sub-name-1">
+                            <i class="fa-solid fa-user nav-link icons post-img user-icon"></i>
+                            <!-- <a class="nav-link icons account-image post-img" href="#" title="Account">
+                            </a> -->
+                            <p class="account-name-time">
+                                <a href="#" class="name-txt">User ${data[i].id}</a>
+                                <br />
+                                <span class="post-time" id="post-time-deafault${i}"></span>
+                            </p>
+                        </div>
+                        <div class="sub-name-2">
+                            <i class="fa-solid fa-pen-to-square edit-icon" id="edit-icon"
+                            onclick="editPost('edit')" style="color: #747576;"></i>
+                            <i class="fa-solid fa-xmark xmark-icon" title="Delete" onclick="deletePost(this)"></i>
+                        </div>
+                    </div>
+                    <div class="post-body" id ="post-background${i}">
+                        ${data[i].body}
+                        <div class="update" id="update" onclick="editPost('update')">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="post-like">
+                        <div class="review">
+                            <i class="fa-regular fa-thumbs-up review-icon" id="Like${num}"></i>
+                            <span class="review-txt">Like</span>
+                        </div>
+                        <div class="review">
+                            <i class="fa-regular fa-comment review-icon"></i>
+                            <span class="review-txt">Comment</span>
+                        </div>
+                        <div class="review">
+                            <i class="fa-regular fa-share-from-square review-icon"></i>
+                            <span class="review-txt">Share</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            `
+            var defaultPost = document.getElementById(`post-background${i}`)
+            defaultPost.style.backgroundColor = colors[i];
 
+            var deafaultPostTime = document.getElementById(`post-time-deafault${i}`);
+            deafaultPostTime.innerHTML = moment(constantCurrentTime).fromNow();
+        }
+    })
+    .catch(function (err) {
+        console.log(err);
+    });
 
 
 
@@ -234,11 +394,15 @@ function check() {
     var email = document.getElementById("email");
     var password = document.getElementById("password");
     if (email.value.trim() == "sualeh" && password.value.trim() == "sualeh") {
-        window.location.href = "index.html"
+        location.replace("home.html");
     }
     else {
         alert("Incorrect correct Username or Password")
         email.value = "";
         password.value = "";
     }
+}
+
+function logout(){
+    location.replace("index.html");
 }

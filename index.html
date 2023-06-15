@@ -5,354 +5,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/Facebook_Logo1.webp">
-    <title>  Facebook – Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Images/Facebook_Logo1.webp">
+    <title>  Facebook – log in or sign up</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 
 <body>
-    <!-- Post creation -->
-    <div class="background-black" id="background-black">
-        <div class="create-post-div" id="create-post-div">
-            <div class="post-header">
-                <h1>Create post</h1>
-                <a href="#">
-                    <i class="fa-solid fa-xmark close" onclick="postDivHide()" title="Delete"
-                        style="color: #0f0f0f;"></i>
-                </a>
+    <div class="box">
+        <div class="header">
+            <div class="sub-box1">
+                <img src="Images/dF5SId3UHWd.svg" alt="Facebook_logo">
+                <p class="text">
+                    Facebook helps you connect and share with the people in your life.
+                </p>
             </div>
-            <div class="create-post-name">
-                <a class="nav-link icons account-image post-img" href="#" title="Account">
-                </a>
-                <a href="#" class="name-txt create-post-div-txt">Muhammad Sualeh Siddiqui</a>
-            </div>
-            <textarea name="post-text" id="create-post-body" class="create-post-body"
-                placeholder="What's on your mind, Sualeh?"></textarea>
-            <div class="background-post">
-                <ul class="bg-list">
-                    <li class="bg bg-1" id="showOrHide" onclick="showOrHideBG()">
-                        <img src="Images/font-color-icon.png" alt="" class="bg-icon-img">
-                    </li>
-                    <li class="bg bg-10" id="bg-10" onclick="bakgroundImage('white')"></li>
-                    <li class="bg bg-2" id="bg-2" onclick="bakgroundImage('blue')">
-                    </li>
-                    <li class="bg bg-3" id="bg-3" onclick="bakgroundImage('pink')">
-                    </li>
-                    <li class="bg bg-4" id="bg-4" onclick="bakgroundImage('smile')">
-                    </li>
-                    <li class="bg bg-5" id="bg-5" onclick="bakgroundImage('redHeart')">
-                    </li>
-                    <li class="bg bg-6" id="bg-6" onclick="bakgroundImage('babyPink')">
-                    </li>
-                    <li class="bg bg-7" id="bg-7" onclick="bakgroundImage('rain')">
-                    </li>
-                    <li class="bg bg-8" id="bg-8" onclick="bakgroundImage('blackHeart')">
-                    </li>
-                    <li class="bg bg-9" id="bg-9" onclick="bakgroundImage('cat')">
-                    </li>
-                </ul>
-            </div>
-            <div class="font-color-div">
-                <input type="color" name="font-color" id="font-color" onchange="changeFont()">
-            </div>
-            <button class="post-btn mt-auto mb-2" onclick="post()" id="post-btn">
-                <p>Post</p>
-            </button>
-        </div>
-    </div>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" title="Facebook">
-                <img src="Images/Facebook_Logo.webp" alt="facebook_logo" class="fb-logo">
-            </a>
-            <a class="navbar-brand search-icon" href="#" title="Search">
-                <i class="fa-solid fa-magnifying-glass" style="color: #959aa3;"></i>
-            </a>
-            <button class="navbar-toggler nv-toggle-btn" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                    <i class="fa-solid fa-bars hamburger-ic"></i>
-                </span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav nav-bar-items1 ms-auto me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" title="Home">
-                            <i class="fa-solid fa-house icon" style="color: #0778e9;"></i>
-                            <span class="header-txt">Home</span>
+            <div class="sub-box2">
+                <div class="sub-sub-box">
+                    <input type="text" id="email" class="mail" name="email-or-phone-number"
+                        placeholder="Email adress or phone number" autofocus="1">
+                    <input type="password" id="password" class="password" name="password" placeholder="Password" autofocus="1">
+                    <button class="log-in-btn" name="Log in" onclick="check()">
+                        Log in
+                    </button>
+                    <p class="frgt-txt">
+                        <a href="#" class="frgt-pass">
+                            Forgotten password?
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" title="Friends">
-                            <i class="fa-solid fa-user-group fr-icon"></i>
-                            <span class="header-txt">Friends</span>
+                    </p>
+                    <div class="for-hr">
+                        <hr />
+                    </div>
+                    <button class="create-btn" name="Create New Account">
+                        Create New Account
+                    </button>
+                </div>
+                <p class="for-text">
+                    <span class="for-sub-text">
+                        <a href="#" class="create-page">
+                            Create a Page
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" title="Watch">
-                            <i class="fa-solid fa-tv fr-icon"></i>
-                            <span class="header-txt">Watch</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" title="Groups">
-                            <i class="fa-solid fa-users-rectangle fr-icon"></i>
-                            <span class="header-txt">Group</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" title="More">
-                            <i class="fa-solid fa-bars fr-icon more-icon"></i>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav nav-bar-items2 ms-auto me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active icons" aria-current="page" href="#" title="Create"
-                            onclick="postDiv()">
-                            <i class="fa-solid fa-plus add-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link icons" href="#" title="Messenger">
-                            <i class="fa-brands fa-facebook-messenger add-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  icons" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="fa-solid fa-bell add-icon"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">No New Notification</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  icons account-image" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false"></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="log-in.html">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                    </span>
+                    for a celebrity, brand or business
+                </p>
             </div>
         </div>
-    </nav>
-    <div class="body">
-        <div class="container main-page">
-            <div class="menu">
-                <ul class="menu-list">
-                    <li class="menu-items">
-                        <div class="menu-account-img"></div>
-                        <a href="#" class="menu-txt">
-                            Muhammad Sualeh Siddiqui
-                        </a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/friends.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Friends</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/group.png" alt="Groups-img" class="men-icons">
-                        <a href="#" class="menu-txt">Groups</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/recent-ad-activity.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Feeds (Most Recent)</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/watch.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Watch</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/memories.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Memories</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/saved.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Saved</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/pages.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Pages</a>
-                    </li>
-
-                    <li class="menu-items">
-                        <img src="Images/Icons/ad-center.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Ad Center</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/add-manager.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Ads Manager</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/climate-sceince-center.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Climate Sceince Center</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/crisis-response.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Crisis Response</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/events.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Events</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/fundraiser.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Fundraiser</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/gaming-video.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Gaming Video</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/messenger.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Messenger</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/orders-and-payments.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Orders & Payments</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/play-games.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Play Games</a>
-                    </li>
-                    <li class="menu-items">
-                        <img src="Images/Icons/recent-ad-activity.png" alt="-img" class="men-icons">
-                        <a href="#" class="menu-txt">Recent Ad Activity</a>
-                    </li>
+        <div class="footer">
+            <div class="sub-footer">
+                <br />
+                <ul class="footer-list">
+                    <li class="li-1">English (UK)</li>
+                    <li class="li">اردو</li>
+                    <li class="li">پښتو</li>
+                    <li class="li">العربية</li>
+                    <li class="li">हिन्दी</li>
+                    <li class="li">বাংলা</li>
+                    <li class="li">ਪੰਜਾਬੀ</li>
+                    <li class="li">فارسی</li>
+                    <li class="li">ગુજરાતી</li>
+                    <li class="li">Deutsch</li>
+                    <li class="li">Español</li>
                 </ul>
-            </div>
-            <div class="feed" id="feed">
-                <!-- Stories -->
-                <div class="stories-div">
-                    <div class="story-hd-div">
-                        <span>Stories</span>
-                    </div>
-                    <div class="all-story">
-                        <div class="story story-1">
-                            <div class="sub-story-1-1">
-                                <span class="sub-stry-create-txt">
-                                    Create Story
-                                </span>
-                            </div>
-                            <div class="sub-story-1-2">
-                                <img src="Images/plus.png" alt="create" class="story-create">
-                            </div>
-                        </div>
-                        <div class="story story-2">
-                            <div class="sub-story-2-1">
-                                <span class="sub-stry-txt">
-                                    Ather Siddqiui
-                                </span>
-                            </div>
-                            <div class="sub-story-2-2">
-                            </div>
-                        </div>
-                        <div class="story story-3">
-                            <div class="sub-story-3-1">
-                                <span class="sub-stry-txt">
-                                    Rayyan
-                                </span>
-                            </div>
-                            <div class="sub-story-3-2">
-                            </div>
-                        </div>
-                        <div class="story story-4">
-                            <div class="sub-story-4-1">
-                                <span class="sub-stry-txt">
-                                    Mohib
-                                </span>
-                            </div>
-                            <div class="sub-story-4-2">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Post -->
-                <div class="post-div">
-                    <a class="nav-link icons account-image post-img" href="#" title="Account">
-                    </a>
-                    <div class="post-creation-div" onclick="postDiv()">
-                        <p class="mt-auto mb-auto">
-                            What's on your mind, Sualeh?
-                        </p>
-                    </div>
-                    <div class="photo-div">
-                        <img src="Images/photo-logo.png" alt="">
-                        <span>Photos/Videos</span>
-                    </div>
-                    <div class="feeling-div">
-                        <img src="Images/emoji-logo.png" alt="">
-                        <span>Feeling/Activity</span>
-                    </div>
-                </div>
-                <!-- All Posts -->
-                <ul class="all-post" id="all-post">
-                    <li>
-                        <div class="post">
-                            <div class="name">
-                                <div class="sub-name-1">
-                                    <a class="nav-link icons account-image post-img" href="#" title="Account">
-                                    </a>
-                                    <p class="account-name-time">
-                                        <a href="#" class="name-txt">Muhammad Sualeh Siddiqui</a>
-                                        <br />
-                                        <span class="post-time" id="my-post-time"></span>
-                                    </p>
-                                </div>
-                                <div class="sub-name-2">
-                                    <i class="fa-solid fa-pen-to-square edit-icon" id="edit-icon"
-                                        onclick="editPost('edit')" style="color: #747576;"></i>
-                                    <i class="fa-solid fa-xmark xmark-icon" title="Delete" onclick="deletePost()"></i>
-                                </div>
-                            </div>
-                            <div class="post-body main-post" id="post-background">
-                                Made By Sualeh Siddiqui
-                                <div class="update" id="update" onclick="editPost('update')">
-                                    <i class="fa-solid fa-check"></i>
-                                </div>
-                            </div>
-                            <div class="post-like">
-                                <div class="review" onclick="like()">
-                                    <i class="fa-regular fa-thumbs-up review-icon" id="Like"></i>
-                                    <span class="review-txt">Like</span>
-                                </div>
-                                <div class="review">
-                                    <i class="fa-regular fa-comment review-icon"></i>
-                                    <span class="review-txt">Comment</span>
-                                </div>
-                                <div class="review">
-                                    <i class="fa-regular fa-share-from-square review-icon"></i>
-                                    <span class="review-txt">Share</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="delete-all-post" id="delete-all-post" onclick="deleteAllPost()">
-                <i class="fa-solid fa-trash-can"></i>
-                <span>Delete all</span>
+                <hr />
+                <p>
+                    <a href="#">Sign</a> <a href="#">UpLog</a> <a href="#">inMessenger</a> <a href="#">Facebook Lite</a> <a href="#">Watch</a>
+                    <a href="#">Places</a> <a href="#">Games</a> <a href="#">Marketplace</a> <a href="#">Meta Pay</a> <a href="#">Oculus</a>
+                    <a href="#">Portal</a> <a href="#">Instagram</a> <a href="#">Bulletin</a> <a href="#">Fundraisers</a> <a href="#">Services</a>
+                    <a href="#">Voting Information Centre</a> <a href="#">Privacy Policy</a> <a href="#">Privacy Centre</a> <a href="#">Groups</a>
+                    <a href="#">About</a> <a href="#">Create ad</a> <a href="#">Create Page</a> <a href="#">Developers</a> <a href="#">Careers</a>
+                    <a href="#">Contact uploading and non-users</a> <a href="#">AdChoices</a> <a href="#">Terms</a> <a href="#">Help</a>
+                    <br />
+                    <br />                 
+                    <span>Meta © 2023</span>
+                </p>
             </div>
         </div>
     </div>
 
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="momen.js"></script>
-    <script src="https://kit.fontawesome.com/e0836ffa6a.js" crossorigin="anonymous"></script>
     <script src="app.js"></script>
-
 </body>
 
 </html>

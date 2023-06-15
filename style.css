@@ -313,13 +313,15 @@ body {
 
 .feed {
     width: 60%;
-    height: auto;
+    height: 90vh;
+    /* background-color: #25d4ff; */
     background-color: #f0f2f5;
     box-shadow: #959da533 0px 8px 24px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .menu-list {
@@ -560,7 +562,9 @@ body {
     margin-left: 5px;
 }
 
-
+.dropdown-item:hover{
+    cursor: pointer;
+}
 
 .all-post {
     width: 92%;
@@ -644,6 +648,8 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: auto;
+    padding: 5px;
 }
 
 .post-like {
@@ -715,8 +721,8 @@ body {
 
 .delete-all-post {
     position: fixed;
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background-color: #fff;
     bottom: 10px;
@@ -729,15 +735,27 @@ body {
 }
 
 .delete-all-post>i {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .delete-all-post>span {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .delete-all-post:hover {
     cursor: pointer;
+}
+
+.user-icon{
+    font-size: 24px;
+    color: #000;
+    background-color: #717274;
+    text-align: center;
+    padding: 10px;
+}
+
+.user-icon:hover{
+    color: #000;
 }
 
 @media only screen and (max-width: 992px) {
