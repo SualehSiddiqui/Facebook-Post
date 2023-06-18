@@ -650,6 +650,7 @@ body {
     position: relative;
     overflow: auto;
     padding: 5px;
+    word-break: break-all;
 }
 
 .post-like {

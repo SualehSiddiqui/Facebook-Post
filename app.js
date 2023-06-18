@@ -212,7 +212,7 @@ function deleteAllPost() {
 function editPost(action) {
     if (action == "update") {
         event.target.parentNode.parentNode.contentEditable = false;
-        event.target.parentNode.style.display = "none"
+        event.target.parentNode.style.display = "none";
     }
     else {
         event.target.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].style.display = "flex";
@@ -226,113 +226,13 @@ function changeFont() {
     textArea.style.color = font.value
 }
 
+let postQuantity;
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then(function (data) {
         return data.json();
     })
     .then(function (data) {
-        var colors = [
-            `AliceBlue`,
-            `AntiqueWhite`,
-            `Aqua`,
-            `Aquamarine`,
-            `Azure`,
-            `Beige`,
-            `Bisque`,
-            `YellowGreen`,
-            `BlanchedAlmond`,
-            `Blue`,
-            `BlueViolet`,
-            `Brown`,
-            `BurlyWood`,
-            `CadetBlue`,
-            `Chartreuse`,
-            `Chocolate`,
-            `Coral`,
-            `CornflowerBlue`,
-            `Cornsilk`,
-            `Crimson`,
-            `Cyan`,
-            `DarkBlue`,
-            `DarkCyan`,
-            `DarkGoldenRod`,
-            `DarkGray`,
-            `DarkGrey`,
-            `DarkGreen`,
-            `DarkKhaki`,
-            `DarkMagenta`,
-            `DarkOliveGreen`,
-            `Darkorange`,
-            `DarkOrchid`,
-            `DarkRed`,
-            `DarkSalmon`,
-            `DarkSeaGreen`,
-            `DarkSlateBlue`,
-            `DarkSlateGray`,
-            `DarkSlateGrey`,
-            `DarkTurquoise`,
-            `DarkViolet`,
-            `DeepPink`,
-            `DeepSkyBlue`,
-            `DimGray`,
-            `DimGrey`,
-            `DodgerBlue`,
-            `FireBrick`,
-            `FloralWhite`,
-            `ForestGreen`,
-            `Fuchsia`,
-            `Gainsboro`,
-            `GhostWhite`,
-            `Gold`,
-            `GoldenRod`,
-            `Gray`,
-            `Grey`,
-            `Green`,
-            `GreenYellow`,
-            `HoneyDew`,
-            `HotPink`,
-            `IndianRed`,
-            `Indigo`,
-            `Ivory`,
-            `Khaki`,
-            `Lavender`,
-            `LavenderBlush`,
-            `LawnGreen`,
-            `LemonChiffon`,
-            `LightBlue`,
-            `LightCoral`,
-            `LightCyan`,
-            `LightGoldenRodYellow`,
-            `LightGray`,
-            `LightGrey`,
-            `LightGreen`,
-            `LightPink`,
-            `LightSalmon`,
-            `LightSeaGreen`,
-            `LightSkyBlue`,
-            `LightSlateGray`,
-            `LightSlateGrey`,
-            `LightSteelBlue`,
-            `LightYellow`,
-            `Lime`,
-            `LimeGreen`,
-            `Linen`,
-            `Magenta`,
-            `Maroon`,
-            `MediumAquaMarine`,
-            `MediumBlue`,
-            `MediumOrchid`,
-            `MediumPurple`,
-            `MediumSeaGreen`,
-            `MediumSlateBlue`,
-            `MediumSpringGreen`,
-            `MediumTurquoise`,
-            `MediumVioletRed`,
-            `MidnightBlue`,
-            `MintCream`,
-            `MistyRose`,
-            `Moccasin`
-        ]
+        postQuantity = data.length;
         for (var i = 0; i < data.length; i++) {
             allPost.innerHTML += `
             <li>
@@ -377,16 +277,30 @@ fetch('https://jsonplaceholder.typicode.com/posts')
                 </div>
             </li>
             `
-            var defaultPost = document.getElementById(`post-background${i}`)
-            defaultPost.style.backgroundColor = colors[i];
-
             var deafaultPostTime = document.getElementById(`post-time-deafault${i}`);
             deafaultPostTime.innerHTML = moment(constantCurrentTime).fromNow();
         }
+
+        fetch('https://jsonplaceholder.typicode.com/photos')
+            .then(function (data) {
+                return data.json();
+            })
+            .then(function (data) {
+                for (var i = 0; i <= postQuantity; i++) {
+                    var defaultPost = document.getElementById(`post-background${i}`)
+                    defaultPost.style.backgroundImage = `url(${data[i].url})`;
+                    console.log(data[i].url, postQuantity, i)
+                }
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
     })
     .catch(function (err) {
         console.log(err);
     });
+
+
 
 
 
@@ -403,6 +317,6 @@ function check() {
     }
 }
 
-function logout(){
+function logout() {
     location.replace("index.html");
 }
