@@ -320,3 +320,16 @@ function check() {
 function logout() {
     location.replace("index.html");
 }
+
+
+window.logout = logout;
+window.check = check;
+window.changeFont = changeFont;
+window.editPost = editPost;
+window.deleteAllPost = deleteAllPost;
+window.deletePost = deletePost;
+window.post = post;
+window.postDivHide = postDivHide;
+window.postDiv = postDiv;
+window.showOrHideBG = showOrHideBG;
+window.bakgroundImage = bakgroundImage;
